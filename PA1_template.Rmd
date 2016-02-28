@@ -72,7 +72,7 @@ These are the values calculated.
 
 ```
 
-In conclusion, the mean of the total number of steps taken per day is 10766.19
+In conclusion, the mean of the total number of steps taken per day is **10766.19**.
 
 ## What is the average daily activity pattern?
 
