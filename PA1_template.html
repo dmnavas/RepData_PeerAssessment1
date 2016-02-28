@@ -301,9 +301,9 @@ The higher values of activity are located between the intervals 500 minutes and 
 <pre><code class="r">sum(!complete.cases(activity))
 </code></pre>
 
-<p>The number of missing values is <strong>2304</strong>.</p>
-
-<p>The strategy for filling in all of the missing values in the dataset uses the mean for the 5-minute interval. 
+<p>The number of missing values is <strong>2304</strong>. This figure represents the 13% of the total number of records of the original dataset. 
+This result motivates looking for a statetgy for filling in all of the missing values.
+The selected strategy uses the mean for the 5-minute interval. 
 The implementation is shown below.</p>
 
 <pre><code class="r">activityNoNAs &lt;- activity
@@ -314,7 +314,10 @@ activityNoNAs$steps &lt;- with(activityNoNAs,
 
 <p>This implementation copies the original dataset, then, fill in all the missing values. </p>
 
-<p>With aims of calculates the total number of steps taken per day the following piece of code was implemented.</p>
+<p>Having the dataset without missing values, the objective is to compare the average results of the sum of the total steps taken per day
+with and without missing values. </p>
+
+<p>With aims of calculate the total number of steps taken per day the following piece of code was implemented.</p>
 
 <pre><code class="r">stepsPerDayDataNoNAs &lt;- activityNoNAs %&gt;% group_by(date) %&gt;%summarise(stepsPerDay = sum(steps))
 </code></pre>
@@ -355,7 +358,7 @@ indicating whether a given date is a weekday or weekend day.</p>
 This dataset is obtained as follows.</p>
 
 <pre><code class="r">stepsPerIntervalDataNoNAs &lt;- activityNoNAs %&gt;% group_by(interval, weekdays) 
-    %&gt;%summarise(stepsPerInterval = mean(steps)) 
+    %&gt;% summarise(stepsPerInterval = mean(steps)) 
 </code></pre>
 
 <p>This new dataset allows us plotting time series figure of the 5-minute interval and the average number of steps taken shown below.</p>
