@@ -30,7 +30,7 @@ For this purpose the following piece of code calculates the total number of step
 
 ```r
 stepsPerDayData <- activity %>% filter(!is.na(steps)) %>% group_by(date) 
-	%>%summarise(stepsPerDay = sum(steps))
+	%>% summarise(stepsPerDay = sum(steps))
 ```
 
 These are the first 10 rows of the data obtained above.
