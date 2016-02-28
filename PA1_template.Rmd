@@ -108,9 +108,9 @@ The following piece of code calculates the number of missing values of the origi
 sum(!complete.cases(activity))
 ```
 
-The number of missing values is **2304**.
-
-The strategy for filling in all of the missing values in the dataset uses the mean for the 5-minute interval. 
+The number of missing values is **2304**. This figure represents the 13% of the total number of records of the original dataset. 
+This result motivates looking for a statetgy for filling in all of the missing values.
+The selected strategy uses the mean for the 5-minute interval. 
 The implementation is shown below.
 
 ```r
@@ -122,7 +122,10 @@ activityNoNAs$steps <- with(activityNoNAs,
 
 This implementation copies the original dataset, then, fill in all the missing values. 
 
-With aims of calculates the total number of steps taken per day the following piece of code was implemented.
+Having the dataset without missing values, the objective is to compare the average results of the sum of the total steps taken per day
+with and without missing values. 
+
+With aims of calculate the total number of steps taken per day the following piece of code was implemented.
 
 ```r
 stepsPerDayDataNoNAs <- activityNoNAs %>% group_by(date) %>%summarise(stepsPerDay = sum(steps))
@@ -169,7 +172,7 @@ This dataset is obtained as follows.
 
 ```r
 stepsPerIntervalDataNoNAs <- activityNoNAs %>% group_by(interval, weekdays) 
-	%>%summarise(stepsPerInterval = mean(steps)) 
+	%>% summarise(stepsPerInterval = mean(steps)) 
 ```
 This new dataset allows us plotting time series figure of the 5-minute interval and the average number of steps taken shown below.
 
