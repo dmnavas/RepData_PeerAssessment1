@@ -60,7 +60,7 @@ A histogram of the total number of steps taken each day is shown above.
 The following piece of code calculates the mean and median of the total number of steps taken per day
 
 ```r
-stepsPerDayData %>%summarise(meanStepsPerDay = mean(stepsPerDay), medianStepsPerDay = median(stepsPerDay))
+stepsPerDayData %>% summarise(meanStepsPerDay = mean(stepsPerDay), medianStepsPerDay = median(stepsPerDay))
 ```
 
 These are the values calculated.
@@ -72,7 +72,7 @@ These are the values calculated.
 
 ```
 
-In conclusion, the mean of the total number of steps taken per day is 10766.19
+In conclusion, the mean of the total number of steps taken per day is **10766.19**.
 
 ## What is the average daily activity pattern?
 
@@ -82,7 +82,7 @@ To answer this question a new dataset is created with the mean daily activity gr
 
 ```r
 stepsPerIntervalData <- activity %>% filter(!is.na(steps)) %>% group_by(interval) 
-	%>%summarise(stepsPerInterval = mean(steps)) 
+	%>% summarise(stepsPerInterval = mean(steps)) 
 ```
 
 A time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis), 
